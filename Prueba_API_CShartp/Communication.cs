@@ -11,21 +11,29 @@ namespace Prueba_API_CShartp
     {
         private SerialPort port = new SerialPort();
 
+        public Communication()
+        {
+        }
         public Communication(string portName, int baudRate)  
         {
             port.PortName = portName;
             port.BaudRate = baudRate;
         }
 
-        public string[] getPortNames() {
+        public string[] GetPortNames() {
 
             return SerialPort.GetPortNames();       
         }
 
-        public void initializeSerialPort(string portName, int baudRate)
+        public void InitializeSerialPort(string portName, int baudRate)
         {
             port.PortName = portName;
             port.BaudRate = baudRate;
+        }
+
+        public void Write(string data)
+        {
+            port.Write(data);
         }
 
 
