@@ -11,9 +11,14 @@ namespace Prueba_API_CShartp
         Communication communication = new Communication();
         MessagesGenerator messageGenerator = new MessagesGenerator();
 
-        public void InitializeSerialPort(string portName, int baudRate)
+        public void OpenPort(string portName, int baudRate)
         {
-            communication.InitializeSerialPort(portName,baudRate);
+            communication.OpenPort(portName,baudRate);
+        }
+
+        public void ClosePort()
+        {
+            communication.ClosePort();
         }
 
         public string[] GetPortNames()
@@ -31,6 +36,26 @@ namespace Prueba_API_CShartp
         {
             string message = messageGenerator.ActivateActuators(pins,values);
             communication.Write(message);
+        }
+
+        public string ReadLine()
+        {
+            return communication.ReadLine();
+        }
+
+        public void Write(string message)
+        {
+            communication.Write(message);
+        }
+
+        public string AnalogRead(int pin)
+        {
+            string message = messageGenerator.AnalogRead(pin);
+            communication.Write(message);
+            string value_string = communication.ReadLine();
+            //int value_int = Int32.Parse(value_string);
+
+            return value_string;
         }
     }
 }

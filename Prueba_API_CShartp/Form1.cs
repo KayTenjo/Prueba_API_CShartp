@@ -12,7 +12,7 @@ namespace Prueba_API_CShartp
 {
     public partial class Form1 : Form
     {
-        private MessagesGenerator guante = new MessagesGenerator();
+        private Glove guante = new Glove();
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +43,8 @@ namespace Prueba_API_CShartp
                 pines[i] = Int32.Parse(pines_string[i]);
             }
 
-            labelResultado.Text = "Resultado: " + guante.InitializeActuators(pines);
+            //labelResultado.Text = "Resultado: " + guante.InitializeActuators(pines);
+            guante.InitializeActuators(pines);
 
 
         }
@@ -63,7 +64,50 @@ namespace Prueba_API_CShartp
 
 
 
-            labelResultado.Text = "Resultado: " + guante.ActivateActuators(pines, valores_string);
+            //labelResultado.Text = "Resultado: " + guante.ActivateActuators(pines, valores_string);
+            guante.ActivateActuators(pines, valores_string);
+        }
+
+        private void buttonListaPuertos_Click(object sender, EventArgs e)
+        {
+            string[] puertos = guante.GetPortNames();
+
+            listBoxPuertosDisponibles.Items.AddRange(puertos);
+
+        }
+
+        private void buttonInicializarSerial_Click(object sender, EventArgs e)
+        {
+            string puerto = listBoxPuertosDisponibles.SelectedItem.ToString();
+            int baudRate = Int32.Parse(textBoxBaudRate.Text);
+
+            guante.OpenPort(puerto, baudRate);
+
+        }
+
+      
+
+        private void buttonEnviar_Click(object sender, EventArgs e)
+        {
+            string mensaje = textBoxEnviarDatos.Text;
+            guante.Write(mensaje);
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            string pin = textBoxPines.Text;
+            int pin_int = Int32.Parse(pin);
+            textBoxRecibirDatos.Text = guante.AnalogRead(pin_int).ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            guante.ClosePort();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

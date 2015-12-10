@@ -13,6 +13,7 @@ namespace Prueba_API_CShartp
         private string terminal = "s";
         private string initializeFunctionNumber = "1";
         private string activateFunctionNumber = "2";
+        private string analogReadFunctionNumber = "3";
 
         public string InitializeActuators(int[] pinArray)
         {
@@ -101,8 +102,11 @@ namespace Prueba_API_CShartp
 
         }
 
-
-
+        public string AnalogRead(int pin)
+        {
+            string message = analogReadFunctionNumber + ',' + pin + terminal;
+            return message;
+        }
 
     }
 }

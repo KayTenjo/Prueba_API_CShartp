@@ -25,15 +25,27 @@ namespace Prueba_API_CShartp
             return SerialPort.GetPortNames();       
         }
 
-        public void InitializeSerialPort(string portName, int baudRate)
+        public void OpenPort(string portName, int baudRate)
         {
-            port.PortName = portName;
-            port.BaudRate = baudRate;
+            this.port.Close();
+            this.port.PortName = portName;
+            this.port.BaudRate = baudRate;
+            this.port.Open();
         }
 
         public void Write(string data)
         {
             port.Write(data);
+        }
+
+        public string ReadLine()
+        {
+            return port.ReadLine();
+        }
+
+        public void ClosePort()
+        {
+            this.port.Close();
         }
 
 
