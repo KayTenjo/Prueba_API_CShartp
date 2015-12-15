@@ -109,5 +109,27 @@ namespace Prueba_API_CShartp
         {
 
         }
+
+        private void buttonInicializarEntradaDigital_Click(object sender, EventArgs e)
+        {
+            string[] pines_string = textBoxPines.Text.Split(',');
+            int[] pines = new int[pines_string.Length];
+
+            for (var i = 0; i < pines_string.Length; i++)
+            {
+                pines[i] = Int32.Parse(pines_string[i]);
+            }
+
+            //labelResultado.Text = "Resultado: " + guante.InitializeActuators(pines);
+            guante.InitializeDigitalInput(pines);
+        }
+
+        private void buttonLeerPinDigital_Click(object sender, EventArgs e)
+        {
+            string pin = textBoxPines.Text;
+            int pin_int = Int32.Parse(pin);
+            textBoxRecibirDatos.Text = guante.digitalRead(pin_int).ToString();
+
+        }
     }
 }

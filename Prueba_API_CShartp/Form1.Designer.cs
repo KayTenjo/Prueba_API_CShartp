@@ -46,6 +46,8 @@
             this.buttonRecibirDatos = new System.Windows.Forms.Button();
             this.buttonEnviar = new System.Windows.Forms.Button();
             this.textBoxEnviarDatos = new System.Windows.Forms.TextBox();
+            this.buttonInicializarEntradaDigital = new System.Windows.Forms.Button();
+            this.buttonLeerPinDigital = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonInicializar
@@ -177,7 +179,7 @@
             // 
             // textBoxRecibirDatos
             // 
-            this.textBoxRecibirDatos.Location = new System.Drawing.Point(263, 189);
+            this.textBoxRecibirDatos.Location = new System.Drawing.Point(263, 208);
             this.textBoxRecibirDatos.Multiline = true;
             this.textBoxRecibirDatos.Name = "textBoxRecibirDatos";
             this.textBoxRecibirDatos.Size = new System.Drawing.Size(198, 60);
@@ -185,7 +187,7 @@
             // 
             // buttonRecibirDatos
             // 
-            this.buttonRecibirDatos.Location = new System.Drawing.Point(263, 255);
+            this.buttonRecibirDatos.Location = new System.Drawing.Point(263, 274);
             this.buttonRecibirDatos.Name = "buttonRecibirDatos";
             this.buttonRecibirDatos.Size = new System.Drawing.Size(99, 32);
             this.buttonRecibirDatos.TabIndex = 14;
@@ -195,7 +197,7 @@
             // 
             // buttonEnviar
             // 
-            this.buttonEnviar.Location = new System.Drawing.Point(16, 255);
+            this.buttonEnviar.Location = new System.Drawing.Point(16, 274);
             this.buttonEnviar.Name = "buttonEnviar";
             this.buttonEnviar.Size = new System.Drawing.Size(93, 32);
             this.buttonEnviar.TabIndex = 15;
@@ -205,17 +207,39 @@
             // 
             // textBoxEnviarDatos
             // 
-            this.textBoxEnviarDatos.Location = new System.Drawing.Point(16, 189);
+            this.textBoxEnviarDatos.Location = new System.Drawing.Point(16, 208);
             this.textBoxEnviarDatos.Multiline = true;
             this.textBoxEnviarDatos.Name = "textBoxEnviarDatos";
             this.textBoxEnviarDatos.Size = new System.Drawing.Size(201, 60);
             this.textBoxEnviarDatos.TabIndex = 16;
             // 
+            // buttonInicializarEntradaDigital
+            // 
+            this.buttonInicializarEntradaDigital.Location = new System.Drawing.Point(263, 157);
+            this.buttonInicializarEntradaDigital.Name = "buttonInicializarEntradaDigital";
+            this.buttonInicializarEntradaDigital.Size = new System.Drawing.Size(102, 36);
+            this.buttonInicializarEntradaDigital.TabIndex = 19;
+            this.buttonInicializarEntradaDigital.Text = "Inicializar Entrada digital";
+            this.buttonInicializarEntradaDigital.UseVisualStyleBackColor = true;
+            this.buttonInicializarEntradaDigital.Click += new System.EventHandler(this.buttonInicializarEntradaDigital_Click);
+            // 
+            // buttonLeerPinDigital
+            // 
+            this.buttonLeerPinDigital.Location = new System.Drawing.Point(371, 157);
+            this.buttonLeerPinDigital.Name = "buttonLeerPinDigital";
+            this.buttonLeerPinDigital.Size = new System.Drawing.Size(93, 36);
+            this.buttonLeerPinDigital.TabIndex = 20;
+            this.buttonLeerPinDigital.Text = "Leer pin digital";
+            this.buttonLeerPinDigital.UseVisualStyleBackColor = true;
+            this.buttonLeerPinDigital.Click += new System.EventHandler(this.buttonLeerPinDigital_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 297);
+            this.ClientSize = new System.Drawing.Size(573, 336);
+            this.Controls.Add(this.buttonLeerPinDigital);
+            this.Controls.Add(this.buttonInicializarEntradaDigital);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxEnviarDatos);
@@ -261,6 +285,8 @@
         private System.Windows.Forms.Button buttonRecibirDatos;
         private System.Windows.Forms.Button buttonEnviar;
         private System.Windows.Forms.TextBox textBoxEnviarDatos;
+        private System.Windows.Forms.Button buttonInicializarEntradaDigital;
+        private System.Windows.Forms.Button buttonLeerPinDigital;
     }
 }
 

@@ -28,7 +28,7 @@ namespace Prueba_API_CShartp
 
         public void InitializeActuators(int[] pinArray)
         {
-            string message = messageGenerator.InitializeActuators(pinArray);
+            string message = messageGenerator.InitializeMotor(pinArray);
             communication.Write(message);
         }
 
@@ -53,9 +53,23 @@ namespace Prueba_API_CShartp
             string message = messageGenerator.AnalogRead(pin);
             communication.Write(message);
             string value_string = communication.ReadLine();
-            //int value_int = Int32.Parse(value_string);
-
             return value_string;
         }
+
+        public string digitalRead(int pin)
+        {
+            string message = messageGenerator.DigitalRead(pin);
+            communication.Write(message);
+            string value_string = communication.ReadLine();
+            return value_string;
+        }
+
+        public void InitializeDigitalInput(int[] pinArray)
+        {
+            string message = messageGenerator.InitializeDigitalInput(pinArray);
+            communication.Write(message);
+        }
+
+
     }
 }
