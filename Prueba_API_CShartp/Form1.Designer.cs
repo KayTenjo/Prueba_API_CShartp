@@ -40,14 +40,14 @@
             this.buttonInicializarSerial = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxBaudRate = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBoxRecibirDatos = new System.Windows.Forms.TextBox();
-            this.buttonRecibirDatos = new System.Windows.Forms.Button();
-            this.buttonEnviar = new System.Windows.Forms.Button();
-            this.textBoxEnviarDatos = new System.Windows.Forms.TextBox();
-            this.buttonInicializarEntradaDigital = new System.Windows.Forms.Button();
+            this.buttonPinMode = new System.Windows.Forms.Button();
             this.buttonLeerPinDigital = new System.Windows.Forms.Button();
+            this.buttonAnalogRead = new System.Windows.Forms.Button();
+            this.buttonAnalogWrite = new System.Windows.Forms.Button();
+            this.buttonDigitalWrite = new System.Windows.Forms.Button();
+            this.textBoxRecibirDatos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonInicializar
@@ -56,7 +56,7 @@
             this.buttonInicializar.Name = "buttonInicializar";
             this.buttonInicializar.Size = new System.Drawing.Size(102, 36);
             this.buttonInicializar.TabIndex = 0;
-            this.buttonInicializar.Text = "Inicializar Motores";
+            this.buttonInicializar.Text = "Initialize Motors";
             this.buttonInicializar.UseVisualStyleBackColor = true;
             this.buttonInicializar.Click += new System.EventHandler(this.buttonInicializar_Click);
             // 
@@ -66,7 +66,7 @@
             this.buttonActivar.Name = "buttonActivar";
             this.buttonActivar.Size = new System.Drawing.Size(93, 36);
             this.buttonActivar.TabIndex = 1;
-            this.buttonActivar.Text = "Activar Motores";
+            this.buttonActivar.Text = "Activate Motors";
             this.buttonActivar.UseVisualStyleBackColor = true;
             this.buttonActivar.Click += new System.EventHandler(this.buttonActivar_Click);
             // 
@@ -75,9 +75,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(263, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 13);
+            this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Pines (separados por coma)";
+            this.label1.Text = "Pins (separados por coma)";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -93,14 +93,14 @@
             // 
             this.textBoxPines.Location = new System.Drawing.Point(263, 36);
             this.textBoxPines.Name = "textBoxPines";
-            this.textBoxPines.Size = new System.Drawing.Size(283, 20);
+            this.textBoxPines.Size = new System.Drawing.Size(222, 20);
             this.textBoxPines.TabIndex = 4;
             // 
             // textBoxValores
             // 
             this.textBoxValores.Location = new System.Drawing.Point(263, 89);
             this.textBoxValores.Name = "textBoxValores";
-            this.textBoxValores.Size = new System.Drawing.Size(283, 20);
+            this.textBoxValores.Size = new System.Drawing.Size(222, 20);
             this.textBoxValores.TabIndex = 5;
             // 
             // buttonListaPuertos
@@ -109,7 +109,7 @@
             this.buttonListaPuertos.Name = "buttonListaPuertos";
             this.buttonListaPuertos.Size = new System.Drawing.Size(101, 23);
             this.buttonListaPuertos.TabIndex = 7;
-            this.buttonListaPuertos.Text = "Lista Puertos";
+            this.buttonListaPuertos.Text = "Port List";
             this.buttonListaPuertos.UseVisualStyleBackColor = true;
             this.buttonListaPuertos.Click += new System.EventHandler(this.buttonListaPuertos_Click);
             // 
@@ -126,9 +126,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Puertos disponibles";
+            this.label3.Text = "Ports";
             // 
             // buttonInicializarSerial
             // 
@@ -136,7 +136,7 @@
             this.buttonInicializarSerial.Name = "buttonInicializarSerial";
             this.buttonInicializarSerial.Size = new System.Drawing.Size(104, 23);
             this.buttonInicializarSerial.TabIndex = 10;
-            this.buttonInicializarSerial.Text = "Inicializar Serial";
+            this.buttonInicializarSerial.Text = "Open Port";
             this.buttonInicializarSerial.UseVisualStyleBackColor = true;
             this.buttonInicializarSerial.Click += new System.EventHandler(this.buttonInicializarSerial_Click);
             // 
@@ -157,95 +157,96 @@
             this.textBoxBaudRate.TabIndex = 12;
             this.textBoxBaudRate.Text = "9600";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(470, 115);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 36);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Leer Entrada Análoga";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(124, 48);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 23);
             this.button2.TabIndex = 18;
-            this.button2.Text = "Cerrar Puerto";
+            this.button2.Text = "Close Port";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBoxRecibirDatos
+            // buttonPinMode
             // 
-            this.textBoxRecibirDatos.Location = new System.Drawing.Point(263, 208);
-            this.textBoxRecibirDatos.Multiline = true;
-            this.textBoxRecibirDatos.Name = "textBoxRecibirDatos";
-            this.textBoxRecibirDatos.Size = new System.Drawing.Size(198, 60);
-            this.textBoxRecibirDatos.TabIndex = 13;
-            // 
-            // buttonRecibirDatos
-            // 
-            this.buttonRecibirDatos.Location = new System.Drawing.Point(263, 274);
-            this.buttonRecibirDatos.Name = "buttonRecibirDatos";
-            this.buttonRecibirDatos.Size = new System.Drawing.Size(99, 32);
-            this.buttonRecibirDatos.TabIndex = 14;
-            this.buttonRecibirDatos.Text = "Recibir Datos";
-            this.buttonRecibirDatos.UseVisualStyleBackColor = true;
-            this.buttonRecibirDatos.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // buttonEnviar
-            // 
-            this.buttonEnviar.Location = new System.Drawing.Point(16, 274);
-            this.buttonEnviar.Name = "buttonEnviar";
-            this.buttonEnviar.Size = new System.Drawing.Size(93, 32);
-            this.buttonEnviar.TabIndex = 15;
-            this.buttonEnviar.Text = "Enviar";
-            this.buttonEnviar.UseVisualStyleBackColor = true;
-            this.buttonEnviar.Click += new System.EventHandler(this.buttonEnviar_Click);
-            // 
-            // textBoxEnviarDatos
-            // 
-            this.textBoxEnviarDatos.Location = new System.Drawing.Point(16, 208);
-            this.textBoxEnviarDatos.Multiline = true;
-            this.textBoxEnviarDatos.Name = "textBoxEnviarDatos";
-            this.textBoxEnviarDatos.Size = new System.Drawing.Size(201, 60);
-            this.textBoxEnviarDatos.TabIndex = 16;
-            // 
-            // buttonInicializarEntradaDigital
-            // 
-            this.buttonInicializarEntradaDigital.Location = new System.Drawing.Point(263, 157);
-            this.buttonInicializarEntradaDigital.Name = "buttonInicializarEntradaDigital";
-            this.buttonInicializarEntradaDigital.Size = new System.Drawing.Size(102, 36);
-            this.buttonInicializarEntradaDigital.TabIndex = 19;
-            this.buttonInicializarEntradaDigital.Text = "Inicializar Entrada digital";
-            this.buttonInicializarEntradaDigital.UseVisualStyleBackColor = true;
-            this.buttonInicializarEntradaDigital.Click += new System.EventHandler(this.buttonInicializarEntradaDigital_Click);
+            this.buttonPinMode.Location = new System.Drawing.Point(263, 157);
+            this.buttonPinMode.Name = "buttonPinMode";
+            this.buttonPinMode.Size = new System.Drawing.Size(102, 36);
+            this.buttonPinMode.TabIndex = 19;
+            this.buttonPinMode.Text = "Pin Mode";
+            this.buttonPinMode.UseVisualStyleBackColor = true;
+            this.buttonPinMode.Click += new System.EventHandler(this.buttonPinMode_Click);
             // 
             // buttonLeerPinDigital
             // 
-            this.buttonLeerPinDigital.Location = new System.Drawing.Point(371, 157);
+            this.buttonLeerPinDigital.Location = new System.Drawing.Point(263, 199);
             this.buttonLeerPinDigital.Name = "buttonLeerPinDigital";
-            this.buttonLeerPinDigital.Size = new System.Drawing.Size(93, 36);
+            this.buttonLeerPinDigital.Size = new System.Drawing.Size(102, 36);
             this.buttonLeerPinDigital.TabIndex = 20;
-            this.buttonLeerPinDigital.Text = "Leer pin digital";
+            this.buttonLeerPinDigital.Text = "Digital Read";
             this.buttonLeerPinDigital.UseVisualStyleBackColor = true;
             this.buttonLeerPinDigital.Click += new System.EventHandler(this.buttonLeerPinDigital_Click);
+            // 
+            // buttonAnalogRead
+            // 
+            this.buttonAnalogRead.Location = new System.Drawing.Point(263, 241);
+            this.buttonAnalogRead.Name = "buttonAnalogRead";
+            this.buttonAnalogRead.Size = new System.Drawing.Size(102, 36);
+            this.buttonAnalogRead.TabIndex = 21;
+            this.buttonAnalogRead.Text = "Analog Read";
+            this.buttonAnalogRead.UseVisualStyleBackColor = true;
+            this.buttonAnalogRead.Click += new System.EventHandler(this.buttonAnalogRead_Click);
+            // 
+            // buttonAnalogWrite
+            // 
+            this.buttonAnalogWrite.Location = new System.Drawing.Point(470, 199);
+            this.buttonAnalogWrite.Name = "buttonAnalogWrite";
+            this.buttonAnalogWrite.Size = new System.Drawing.Size(93, 36);
+            this.buttonAnalogWrite.TabIndex = 22;
+            this.buttonAnalogWrite.Text = "Analog Write";
+            this.buttonAnalogWrite.UseVisualStyleBackColor = true;
+            this.buttonAnalogWrite.Click += new System.EventHandler(this.buttonAnalogWrite_Click);
+            // 
+            // buttonDigitalWrite
+            // 
+            this.buttonDigitalWrite.Location = new System.Drawing.Point(371, 199);
+            this.buttonDigitalWrite.Name = "buttonDigitalWrite";
+            this.buttonDigitalWrite.Size = new System.Drawing.Size(93, 36);
+            this.buttonDigitalWrite.TabIndex = 23;
+            this.buttonDigitalWrite.Text = "Digital Write";
+            this.buttonDigitalWrite.UseVisualStyleBackColor = true;
+            this.buttonDigitalWrite.Click += new System.EventHandler(this.buttonDigitalWrite_Click);
+            // 
+            // textBoxRecibirDatos
+            // 
+            this.textBoxRecibirDatos.Location = new System.Drawing.Point(16, 186);
+            this.textBoxRecibirDatos.Multiline = true;
+            this.textBoxRecibirDatos.Name = "textBoxRecibirDatos";
+            this.textBoxRecibirDatos.Size = new System.Drawing.Size(183, 102);
+            this.textBoxRecibirDatos.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Datos Recibidos";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 336);
-            this.Controls.Add(this.buttonLeerPinDigital);
-            this.Controls.Add(this.buttonInicializarEntradaDigital);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBoxEnviarDatos);
-            this.Controls.Add(this.buttonEnviar);
-            this.Controls.Add(this.buttonRecibirDatos);
+            this.ClientSize = new System.Drawing.Size(582, 311);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxRecibirDatos);
+            this.Controls.Add(this.buttonDigitalWrite);
+            this.Controls.Add(this.buttonAnalogWrite);
+            this.Controls.Add(this.buttonAnalogRead);
+            this.Controls.Add(this.buttonLeerPinDigital);
+            this.Controls.Add(this.buttonPinMode);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBoxBaudRate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonInicializarSerial);
@@ -279,14 +280,14 @@
         private System.Windows.Forms.Button buttonInicializarSerial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxBaudRate;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBoxRecibirDatos;
-        private System.Windows.Forms.Button buttonRecibirDatos;
-        private System.Windows.Forms.Button buttonEnviar;
-        private System.Windows.Forms.TextBox textBoxEnviarDatos;
-        private System.Windows.Forms.Button buttonInicializarEntradaDigital;
+        private System.Windows.Forms.Button buttonPinMode;
         private System.Windows.Forms.Button buttonLeerPinDigital;
+        private System.Windows.Forms.Button buttonAnalogRead;
+        private System.Windows.Forms.Button buttonAnalogWrite;
+        private System.Windows.Forms.Button buttonDigitalWrite;
+        private System.Windows.Forms.TextBox textBoxRecibirDatos;
+        private System.Windows.Forms.Label label5;
     }
 }
 

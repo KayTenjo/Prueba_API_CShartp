@@ -26,15 +26,15 @@ namespace Prueba_API_CShartp
             return communication.GetPortNames();
         }
 
-        public void InitializeActuators(int[] pinArray)
+        public void InitializeMotor(IEnumerable<int> pins)
         {
-            string message = messageGenerator.InitializeMotor(pinArray);
+            string message = messageGenerator.InitializeMotor(pins);
             communication.Write(message);
         }
 
-        public void ActivateActuators(int[] pins, string[] values)
+        public void ActivateMotor(IEnumerable<int> pins, IEnumerable<string> values)
         {
-            string message = messageGenerator.ActivateActuators(pins,values);
+            string message = messageGenerator.ActivateMotor(pins,values);
             communication.Write(message);
         }
 
@@ -56,7 +56,7 @@ namespace Prueba_API_CShartp
             return value_string;
         }
 
-        public string digitalRead(int pin)
+        public string DigitalRead(int pin)
         {
             string message = messageGenerator.DigitalRead(pin);
             communication.Write(message);
@@ -68,6 +68,41 @@ namespace Prueba_API_CShartp
         {
             string message = messageGenerator.InitializeDigitalInput(pinArray);
             communication.Write(message);
+        }
+        public void PinMode(int pin, string mode)
+        {
+            string message = messageGenerator.PinMode(pin,mode);
+            communication.Write(message);
+        }
+        public void PinMode(IEnumerable<int> pins, IEnumerable<string> modes)
+        {
+            string message = messageGenerator.PinMode(pins, modes);
+            communication.Write(message);
+        }
+
+        public void DigitalWrite(int pin, string value)
+        {
+            string message = messageGenerator.DigitalWrite(pin, value);
+            communication.Write(message);
+        }
+
+        public void DigitalWrite(IEnumerable<int> pins, IEnumerable<string> values)
+        {
+            string message = messageGenerator.DigitalWrite(pins, values);
+            communication.Write(message);
+        }
+
+        public void AnalogWrite(int pin, int value)
+        {
+            string message = messageGenerator.AnalogWrite(pin, value);
+            communication.Write(message);
+        }
+
+        public void AnalogWrite(IEnumerable<int> pins, IEnumerable<int> values)
+        {
+            string message = messageGenerator.AnalogWrite(pins, values);
+            communication.Write(message);
+
         }
 
 

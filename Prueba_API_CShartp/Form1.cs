@@ -44,7 +44,7 @@ namespace Prueba_API_CShartp
             }
 
             //labelResultado.Text = "Resultado: " + guante.InitializeActuators(pines);
-            guante.InitializeActuators(pines);
+            guante.InitializeMotor(pines);
 
 
         }
@@ -65,7 +65,7 @@ namespace Prueba_API_CShartp
 
 
             //labelResultado.Text = "Resultado: " + guante.ActivateActuators(pines, valores_string);
-            guante.ActivateActuators(pines, valores_string);
+            guante.ActivateMotor(pines, valores_string);
         }
 
         private void buttonListaPuertos_Click(object sender, EventArgs e)
@@ -85,21 +85,6 @@ namespace Prueba_API_CShartp
 
         }
 
-      
-
-        private void buttonEnviar_Click(object sender, EventArgs e)
-        {
-            string mensaje = textBoxEnviarDatos.Text;
-            guante.Write(mensaje);
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            string pin = textBoxPines.Text;
-            int pin_int = Int32.Parse(pin);
-            textBoxRecibirDatos.Text = guante.AnalogRead(pin_int).ToString();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             guante.ClosePort();
@@ -110,7 +95,15 @@ namespace Prueba_API_CShartp
 
         }
 
-        private void buttonInicializarEntradaDigital_Click(object sender, EventArgs e)
+        private void buttonLeerPinDigital_Click(object sender, EventArgs e)
+        {
+            string pin = textBoxPines.Text;
+            int pin_int = Int32.Parse(pin);
+            textBoxRecibirDatos.Text = guante.DigitalRead(pin_int).ToString();
+
+        }
+
+        private void buttonPinMode_Click(object sender, EventArgs e)
         {
             string[] pines_string = textBoxPines.Text.Split(',');
             int[] pines = new int[pines_string.Length];
@@ -120,16 +113,47 @@ namespace Prueba_API_CShartp
                 pines[i] = Int32.Parse(pines_string[i]);
             }
 
-            //labelResultado.Text = "Resultado: " + guante.InitializeActuators(pines);
-            guante.InitializeDigitalInput(pines);
+            string[] valores_string = textBoxValores.Text.Split(',');
+
+            guante.PinMode(pines, valores_string);
         }
 
-        private void buttonLeerPinDigital_Click(object sender, EventArgs e)
+        private void buttonDigitalWrite_Click(object sender, EventArgs e)
+        {
+            string[] pines_string = textBoxPines.Text.Split(',');
+            int[] pines = new int[pines_string.Length];
+
+            for (var i = 0; i < pines_string.Length; i++)
+            {
+                pines[i] = Int32.Parse(pines_string[i]);
+            }
+
+            string[] valores_string = textBoxValores.Text.Split(',');
+
+            guante.DigitalWrite(pines, valores_string);
+        }
+
+        private void buttonAnalogWrite_Click(object sender, EventArgs e)
+        {
+            string[] pines_string = textBoxPines.Text.Split(',');
+            string[] valores_string = textBoxValores.Text.Split(',');
+            int[] pines = new int[pines_string.Length];
+            int[] values = new int[valores_string.Length];
+
+            for (var i = 0; i < pines_string.Length; i++)
+            {
+                pines[i] = Int32.Parse(pines_string[i]);
+                values[i] = Int32.Parse(valores_string[i]);
+            }
+
+            guante.AnalogWrite(pines, values);
+        }
+
+        private void buttonAnalogRead_Click(object sender, EventArgs e)
         {
             string pin = textBoxPines.Text;
             int pin_int = Int32.Parse(pin);
-            textBoxRecibirDatos.Text = guante.digitalRead(pin_int).ToString();
-
+            textBoxRecibirDatos.Text = guante.AnalogRead(pin_int).ToString();
         }
     }
 }

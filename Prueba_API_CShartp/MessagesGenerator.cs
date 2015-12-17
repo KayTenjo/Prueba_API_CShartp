@@ -250,7 +250,7 @@ namespace Prueba_API_CShartp
             return message;
         }
 
-        public string AnalogWrite(IEnumerable<int> pins, IEnumerable<string> values)
+        public string AnalogWrite(IEnumerable<int> pins, IEnumerable<int> values)
         {
             if (pins.Count() != values.Count())
             {
