@@ -9,7 +9,7 @@ namespace Prueba_API_CShartp
     class Glove
     {
         Communication communication = new Communication();
-        MessagesGenerator messageGenerator = new MessagesGenerator();
+        MessageGenerator messageGenerator = new MessageGenerator();
 
         public void OpenPort(string portName, int baudRate)
         {

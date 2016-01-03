@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prueba_API_CShartp
 {
-    class MessagesGenerator
+    class MessageGenerator
     {
 
         private string separator = ",";
